@@ -7,6 +7,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
+import { SafeAreaView } from 'react-navigation';
+if (Platform.OS === 'android') {
+  SafeAreaView.setStatusBarHeight(0);
+}
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -39,7 +44,9 @@ async function loadResourcesAsync() {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
-      'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),
+      'Lato-Light': require('./assets/fonts/Lato-Light.ttf'),
+      'Lato-Bold': require('./assets/fonts/Lato-Bold.ttf'),
     }),
   ]);
 }
