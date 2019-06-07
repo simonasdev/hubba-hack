@@ -13,9 +13,10 @@ export default class Devices extends Component {
   state = {
     list: [
       { key: '0', title: 'EV socket', on: true },
+      { key: '7', title: 'Cooling fan', on: false },
       { key: '1', title: 'Living room TV', on: false },
       { key: '2', title: 'Living room PC', on: false },
-      { key: '3', title: 'Kitchen socket', on: true },
+      { key: '3', title: 'LED strip', on: false },
       { key: '4', title: 'Kitchen fridge', on: true },
       { key: '5', title: 'Bedroom', on: false },
       { key: '6', title: 'Bathroom', on: false },
@@ -25,7 +26,27 @@ export default class Devices extends Component {
   toggleDevice(key) {
     this.setState(({ list }) => ({
       list: list.map(item => item.key === key ? { ...item, on: !item.on } : item)
-    }))
+    }), () => this.handleDeviceSwitch(key))
+  }
+
+  async handleDeviceSwitch(key) {
+    const { title, on } = this.state.list.find((item) => item.key === key)
+
+    switch (title) {
+      case 'LED strip':
+        await fetch(`http://blynk-cloud.com/95716389d4024e18b19f88ec8b422709/update/D4?value=${Number(!on)}`)
+
+        break;
+      case 'Cooling fan':
+        if (on) {
+          await fetch(`https://maker.ifttt.com/trigger/Rozete/with/key/WavxzWXqAqh6MeXBiMn9I`)
+        } else {
+          await fetch(`https://maker.ifttt.com/trigger/RozeteOff/with/key/WavxzWXqAqh6MeXBiMn9I`)
+        }
+
+      default:
+        break;
+    }
   }
 
   renderItem = ({ item }) => {

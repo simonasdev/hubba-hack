@@ -50,19 +50,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal: 10,
-    paddingVertical: 20,
-    flexDirection: 'row'
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   card: {
     flex: 1,
     borderRadius: 8,
     backgroundColor: '#FFBFA7',
-    marginHorizontal: 10,
+    marginVertical: 10,
     overflow: 'hidden'
   },
   button: {
-    paddingVertical: 70,
+    paddingVertical: 40,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',

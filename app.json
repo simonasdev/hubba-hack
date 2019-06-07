@@ -11,7 +11,7 @@
       "web"
     ],
     "version": "1.0.0",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -32,7 +32,7 @@
     },
     "android": {
       "package": "com.hubba",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": []
     }
   }
