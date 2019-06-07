@@ -13,12 +13,12 @@ export default class Devices extends Component {
   state = {
     list: [
       { key: '0', title: 'EV socket', on: true },
-      { key: '0', title: 'Living room TV', on: false },
-      { key: '0', title: 'Living room PC', on: false },
-      { key: '1', title: 'Kitchen socket', on: true },
-      { key: '1', title: 'Kitchen fridge', on: true },
-      { key: '2', title: 'Bedroom', on: false },
-      { key: '2', title: 'Bathroom', on: false },
+      { key: '1', title: 'Living room TV', on: false },
+      { key: '2', title: 'Living room PC', on: false },
+      { key: '3', title: 'Kitchen socket', on: true },
+      { key: '4', title: 'Kitchen fridge', on: true },
+      { key: '5', title: 'Bedroom', on: false },
+      { key: '6', title: 'Bathroom', on: false },
     ]
   }
 
@@ -45,7 +45,7 @@ export default class Devices extends Component {
   render() {
     return (
       <FlatList
-        style={styles.container}
+        contentContainerStyle={styles.container}
         data={this.state.list}
         renderItem={this.renderItem}
         ItemSeparatorComponent={Separator}
@@ -56,7 +56,7 @@ export default class Devices extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   item: {

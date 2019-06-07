@@ -4,6 +4,7 @@
     "slug": "hubba",
     "privacy": "public",
     "sdkVersion": "33.0.0",
+    "primaryColor": "#ff6f61",
     "platforms": [
       "ios",
       "android",
@@ -28,6 +29,11 @@
     },
     "androidStatusBar": {
       "backgroundColor": "#ff6f61"
+    },
+    "android": {
+      "package": "com.hubba",
+      "versionCode": 2,
+      "permissions": []
     }
   }
 }

@@ -31,7 +31,7 @@ export default class Schedules extends Component {
   render() {
     return (
       <FlatList
-        style={styles.container}
+        contentContainerStyle={styles.container}
         data={this.state.list}
         renderItem={this.renderItem}
         ItemSeparatorComponent={Separator}
@@ -42,7 +42,7 @@ export default class Schedules extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
   },
   item: {
