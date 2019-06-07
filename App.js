@@ -3,7 +3,7 @@ import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, FontAwesome, Entypo } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
@@ -41,7 +41,9 @@ async function loadResourcesAsync() {
     ]),
     Font.loadAsync({
       // This is the font that we are using for our tab bar
-      ...Ionicons.font,
+      ...MaterialCommunityIcons.font,
+      ...FontAwesome.font,
+      ...Entypo.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free to
       // remove this if you are not using it in your app
       'Lato-Regular': require('./assets/fonts/Lato-Regular.ttf'),

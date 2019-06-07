@@ -1,21 +1,25 @@
 import React from 'react';
 import {
-  Platform,
+  InteractionManager,
   StyleSheet,
   TouchableNativeFeedback,
   View,
 } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Text from '../components/StyledText';
 
 const Ripple = TouchableNativeFeedback.Ripple('#ff6f61', true)
 
 export default function HomeScreen({ navigation }) {
+  const navigate = (screen) => {
+    InteractionManager.runAfterInteractions(() => navigation.navigate(screen));
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <TouchableNativeFeedback onPress={() => navigation.navigate('Monitor')} useForeground background={Ripple}>
+        <TouchableNativeFeedback onPress={() => navigate('Monitor')} useForeground background={Ripple}>
           <View style={styles.button}>
             <Text style={styles.title}>MONITOR</Text>
             <Entypo name='line-graph' size={32} color='white' />
@@ -23,15 +27,15 @@ export default function HomeScreen({ navigation }) {
         </TouchableNativeFeedback>
       </View>
       <View style={styles.card}>
-        <TouchableNativeFeedback onPress={() => navigation.navigate('Schedules')} useForeground background={Ripple}>
+        <TouchableNativeFeedback onPress={() => navigate('Schedules')} useForeground background={Ripple}>
           <View style={styles.button}>
-            <Text style={styles.title}>SCHEDULES</Text>
-            <Entypo name='time-slot' size={32} color='white' />
+            <Text style={styles.title}>TRIGGERS</Text>
+            <MaterialCommunityIcons name='webhook' size={32} color='white' />
           </View>
         </TouchableNativeFeedback>
       </View>
       <View style={styles.card}>
-        <TouchableNativeFeedback onPress={() => navigation.navigate('Devices')} useForeground background={Ripple}>
+        <TouchableNativeFeedback onPress={() => navigate('Devices')} useForeground background={Ripple}>
           <View style={styles.button}>
             <Text style={styles.title}>DEVICES</Text>
             <Entypo name='power-plug' size={32} color='white' />

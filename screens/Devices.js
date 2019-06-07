@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, FlatList, View, Switch } from 'react-native';
+import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 
 import Text from '../components/StyledText';
 
@@ -12,14 +13,14 @@ export default class Devices extends Component {
 
   state = {
     list: [
-      { key: '0', title: 'EV socket', on: true },
-      { key: '7', title: 'Cooling fan', on: false },
-      { key: '1', title: 'Living room TV', on: false },
-      { key: '2', title: 'Living room PC', on: false },
-      { key: '3', title: 'LED strip', on: false },
-      { key: '4', title: 'Kitchen fridge', on: true },
-      { key: '5', title: 'Bedroom', on: false },
-      { key: '6', title: 'Bathroom', on: false },
+      { key: '0', title: 'EV socket', on: true, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='car-battery' /> },
+      { key: '7', title: 'Cooling fan', on: false, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='fan' /> },
+      { key: '1', title: 'Living room TV', on: false, icon: <FontAwesome size={24} color='#ff6f61' name='tv' /> },
+      { key: '2', title: 'Living room PC', on: false, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='laptop' /> },
+      { key: '3', title: 'LED strip', on: false, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='led-strip' /> },
+      { key: '4', title: 'Kitchen fridge', on: true, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='fridge' /> },
+      { key: '5', title: 'Bedroom', on: false, icon: <MaterialCommunityIcons size={24} color='#ff6f61' name='bed-empty' /> },
+      { key: '6', title: 'Bathroom', on: false, icon: <FontAwesome size={24} color='#ff6f61' name='bath' /> },
     ]
   }
 
@@ -52,6 +53,7 @@ export default class Devices extends Component {
   renderItem = ({ item }) => {
     return (
       <View style={styles.item}>
+        {item.icon}
         <Text>{item.title}</Text>
         <Switch
           thumbColor='#ff6f61'
